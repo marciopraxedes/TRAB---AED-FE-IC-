@@ -17,13 +17,12 @@ int main()
     FILE *dbFunc;
     /*fim - varíaveis do programa*/
 
-    /*abertura do programa para gravação*/
-    dbFunc = fopen("db-Funcionarios.txt","w"); /*arquivo db.txt aberto modo gravação*/
-
+    /*abertura do programa para atualização a partir do final*/
+    dbFunc = fopen("db-Funcionarios.txt","a+"); /*arquivo db.txt aberto modo gravação*/
 
     printf("Quantos funcionário deseja cadastrar? ");
     scanf("%d", &qtd);
-
+    gets(algo);
     do
     {
 
@@ -67,6 +66,8 @@ int main()
     gets(salario);
     fputs(salario, dbFunc);
     /*fim-cargo*/
+
+    printf("\n\n");
 
     fputc('\n',dbFunc);
     fputc('\n',dbFunc);
