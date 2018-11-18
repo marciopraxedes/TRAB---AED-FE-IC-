@@ -1,0 +1,18 @@
+Código: 0001
+Nome do funcionário: Marcio Junio Praxedes
+Telefone: 31 99477 8591 
+Cargo: Supervisor de TI
+Salário: 3 000,00
+
+Código: 0002
+Nome do funcionário: Lucas Magalhaes Porto
+Telefone: 31 98565 7785
+Cargo: Jovem Aprendiz
+Salário: 450,00
+
+Código: 0003
+Nome do funcionário: Ana Carolina Mendes
+Telefone: 31 98564 5264
+Cargo: Recepcionista
+Salário: 1 300,00
+

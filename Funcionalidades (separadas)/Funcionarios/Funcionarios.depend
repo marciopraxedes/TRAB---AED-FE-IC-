@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1514144174 source:d:\junio\github\trab---aed-fe-ic-\funcionalidades (separadas)\funcionarios\main.c
+1542564121 source:d:\junio\github\trab---aed-fe-ic-\funcionalidades (separadas)\funcionarios\main.c
 	<stdio.h>
 	<stdlib.h>
+	<locale.h>
 
