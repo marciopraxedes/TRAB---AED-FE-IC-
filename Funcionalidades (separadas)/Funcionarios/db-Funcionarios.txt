@@ -10,3 +10,9 @@ Telefone: 31 995846542
 Cargo: Recepcionista
 Salário: 1 030,00
 
+Código: 0003
+Nome do funcionário: Fulano de tal
+Telefone: 31 958648 5486
+Cargo: Trabalhador
+Salário: R$ 1 500,00
+

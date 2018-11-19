@@ -27,11 +27,22 @@ int main()
     {
 
     /*inicio-código*/
+
+//    do
+//    {
     fputs("Código: ", dbFunc);
     printf("Digite o código: ");
     gets(codigo);
+
+    /*Verifica se o código já existe*/
+//    if (codigo == string que existe no documento)
+//        {
+//        printf("\nEsse código já existe");
+//    }
+//    while (codigo!= string que existe no documento);
+
     fputs(codigo, dbFunc);
-    /*inicio-código*/
+    /*fim-código*/
     fputc('\n',dbFunc);
 
     /*inicio-nome*/
