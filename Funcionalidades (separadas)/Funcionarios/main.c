@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <string.h>
+#include <iostream>
+
 int main()
 {
 
@@ -10,10 +13,9 @@ int main()
     funcionarios.txt na pasta raiz do programa*/
 
 
-
     /*inicio - varíaveis do programa*/
-    int i=0, qtd;
-    char nome[100], telefone[20],cargo[100], salario[20], algo[2], codigo[5];
+    int i=0, qtd, codigo=0;
+    char charCodigo[4]={0}, teste[10], nome[100], telefone[20], cargo[100], salario[20], algo[2];
     FILE *dbFunc;
     /*fim - varíaveis do programa*/
 
@@ -28,20 +30,16 @@ int main()
 
     /*inicio-código*/
 
-//    do
-//    {
     fputs("Código: ", dbFunc);
-    printf("Digite o código: ");
-    gets(codigo);
-
+    itoa(codigo, charCodigo, 10);
     /*Verifica se o código já existe*/
-//    if (codigo == string que existe no documento)
-//        {
-//        printf("\nEsse código já existe");
-//    }
-//    while (codigo!= string que existe no documento);
+    teste = strcat("FU",codigo);
 
-    fputs(codigo, dbFunc);
+    if (teste == )
+
+    fputs("FU", dbFunc);
+    fputs(charCodigo, dbFunc);
+    codigo++;
     /*fim-código*/
     fputc('\n',dbFunc);
 
