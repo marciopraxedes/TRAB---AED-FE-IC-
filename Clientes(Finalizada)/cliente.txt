@@ -1,0 +1,7 @@
+1 Felipe Rua_Azul,_30 3671-4521
+2 Maria Rua_Verde,_30 3671-1122
+3 Joao Rua_Preto,_30 3671-5623
+4 Cleide Rua_Vermelho,_30 3671-7845
+5 Francisco Rua_Laranja,_30 3671-1234
+6 Michel Rua_Vermelho,50 8255-9985
+7 Alan Rua_Cruzeiro,12 1245-6789
