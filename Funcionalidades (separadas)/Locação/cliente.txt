@@ -1,0 +1,7 @@
+1;Felipe;Rua Azul, 30;3671-4521
+2;Maria;Rua Verde, 30;3671-1122
+3;Joao;Rua_Preto, 30;3671-5623
+4;Cleide;Rua Vermelho, 30;3671-7845
+5;Francisco;Rua Laranja, 30;3671-1234
+6;Michel;Rua Vermelho, 50;8255-9985
+7;Alan;Rua Cruzeiro, 12;1245-6789

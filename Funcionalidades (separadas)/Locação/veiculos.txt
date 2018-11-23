@@ -1,0 +1,4 @@
+1;Hatch;Palio;Prata;OXD-7854;90,00;5;Disponivel
+2;Sedan;Siena;Preto;MKS-5486;110,00;5;Disponivel
+3;PickUp;Hillux;Prata;KJD-8548;170,00;Locado
+4;Sedan;Jetta;Branco;ADE-5486;140,00;Manutencao
