@@ -1,16 +1,6 @@
 # depslib dependency file v1.0
-1542565210 source:d:\junio\github\trab---aed-fe-ic-\funcionalidades (separadas)\funcionarios\main.c
+1542960127 source:d:\junio\github\trab---aed-fe-ic-\funcionalidades (separadas)\ivre\main.c
 	<stdio.h>
 	<stdlib.h>
-	<locale.h>
-
-1542664245 source:c:\users\1150012\downloads\trab---aed-fe-ic--master\funcionalidades (separadas)\funcionarios\main.c
-	<stdio.h>
-	<stdlib.h>
-	<locale.h>
-
-1542753943 source:c:\users\marcio.praxedes\documents\github\trab---aed-fe-ic-\funcionalidades (separadas)\funcionarios\main.c
-	<stdio.h>
-	<stdlib.h>
-	<locale.h>
+	<string.h>
 
