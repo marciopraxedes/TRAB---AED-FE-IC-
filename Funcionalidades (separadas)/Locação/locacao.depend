@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1542960127 source:d:\junio\github\trab---aed-fe-ic-\funcionalidades (separadas)\ivre\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
