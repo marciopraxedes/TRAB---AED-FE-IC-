@@ -1,4 +1,4 @@
-1;Otavio Augusto;31 994778591;Suporte Ténico;1200,00
-2;Maria Jose;31 343585564;Doméstica;800
-3;Marielton;31 948575684;Vendedor;1000
-4;Antonia;31 54864594;Vendedora;1500
+1;Otavio Augusto;31 994778591;Suporte TÃ©nico;1200.00
+2;Maria Jose;31 343585564;DomÃ©stica;800.12
+3;Marielton;31 948575684;Vendedor;1000.58
+4;Antonia;31 54864594;Vendedora;1500.99
