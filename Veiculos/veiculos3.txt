@@ -1,0 +1,291 @@
+
+#include<stdio.h>
+#include<string.h>
+
+ typedef struct Veiculos{
+    int codigo;
+    char descricao[100];
+    char modelo[15];
+    char cor [50];
+    float placa[6];
+    float valorDiaria[5];
+    int qntdOcupantes[2];
+    char status[20];
+ }Veiculos;
+
+/*
+ * Cria uma struct Cliente com entradas digitadas pelo usuario
+ * Retorno: struct Cliente com atributos preenchidos
+ * Parametro: struct Cliente vazio, com atributos nao preenchidos
+ */
+Cliente gravarVeiculos(Veiculos C) {
+
+    printf("\nEntre com o codigo do veiculo: ");
+    scanf("%d", &C.codigo);
+    printf("\nEntre com a descricao do veiculo: ");
+    gets(C.descricao);
+    printf("\nEntre com o modelo do veiculo: ");
+    gets(C.modelo);
+    printf("\nEntre com a cor do veiculo: ");
+    gets(C.cor);
+    printf("\nEntre com a placa do veiculo: ");
+    scanf("%f", &C.placa);
+    printf("\nEntre com o valor da diaria do veiculo: ");
+    scanf("%f", &C.valorDiaria);
+    printf("\nEntre com a quantidade de ocupantes: ");
+    scanf("%d", &C.qntdOcupantes);
+    printf("\nEntre com o status do veiculo: ");
+    gets(C.status);
+
+    return C;
+}
+codigo
+descricao
+modelo
+cor
+placa
+valorDiaria
+qntdOcupantes
+status
+
+/*
+ * Mostra na tela os atributos de um struct Veiculos
+ * Retorno: void
+ * Parametro: struct Veiculos com atributos preenchidos
+ */
+void carregarCliente(Cliente C) {
+    printf("\nCodigo: %s\n", C.codigo);
+    printf("Modelo: %s\n", C.modelo);
+    printf("Cor: %s\n", C.cor);
+    printf("Placa: %s\n\n", C.placa);
+    printf("Valor Diaria: %s\n\n", C.valorDiaria);
+    printf("Quantidade de Ocupantes: %s\n\n", C.qntdOcupantes);
+    printf("Status: %s\n\n", C.status);
+
+}
+/*
+ * Mostra na tela os atributos de um vetor de structs Cliente
+ * Retorno: void
+ * Parametro: vetor de structs veiculos com atributos preenchidos
+ */
+void carregarVeiculos(Veiculos *c, int tamanho) {
+    int i;
+
+    if(c != NULL) {
+        for(i = 0; i < tamanho; i++) {
+            printf("\nCodigo no. %d", i);
+            printf("\nDescricao: %s\n", c[i].descricao);
+            printf("\nModelo: %s\n", c[i].modelo);
+            printf("\nCor: %s\n", c[i].cor);
+            printf("\nPlaca: %s\n\n", c[i].placa);
+            printf("\nValor Diaria: %s\n\n", c[i].valorDiaria);
+            printf("\nQuantidade Ocupantes: %s\n\n", c[i].qntdOcupantes);
+            printf("\nStatus: %s\n\n", c[i].status);
+        }
+    } else {
+        printf("Cadastro vazio ou não existente.");
+    }
+}
+
+/*
+ * Grava num arquivo chamado "veiculos.txt" um struct cliente com atributos digitados pelo usu�rio
+ * Retorno: void
+ * Parametro: um struct Cliente vazio, com atributos nao preenchidos
+ */
+void gravarVeiculosNoArquivo(Veiculos C) {
+    FILE *arquivo = fopen("veiculos.txt", "w");
+
+    if(arquivo == NULL) {
+        printf("Nao foi possivel abrir o arquivo");
+    }
+    else {
+        Veiculos Vei = gravarVeiculos(C);
+        fprintf(arquivo, "%d %s %s %s\n", Vei.codigo, Vei.descricao, Vei.modelo, Vei.cor, Vei.placa, Vei.valorDiaria, Vei.qntdOcupantes, Vei.status);
+        fclose(arquivo);
+    }
+}
+
+/*
+ * Carrega um struct Veiculos de um arquivo formatado
+ * Retorno: um struct Veiculos com atributos preenchidos
+ * Parametro: um struct Veiculos vazio, com atributos nao preenchidos
+ */
+void carregarVeiculosDoArquivo(Veiculos C) {
+    FILE *arquivo = fopen("veiculos.txt", "r");
+
+    if(arquivo == NULL) {
+        printf("Nao foi possivel abrir o arquivo");
+    }
+    else {
+        while( (fscanf(arquivo, "%s %s %s %s", C.codigo, C.descricao, C.modelo, C.cor, C.placa, C.valorDiaria, C.qntdOcupantes))!=EOF ) {
+            carregarVeiculos(C);
+        }
+        fclose(arquivo);
+    }
+}
+odigo
+descricao
+modelo
+cor
+placa
+valorDiaria
+qntdOcupantes
+status
+/*
+ * Carrega um vetor de structs Veiculos de um arquivo formatado
+ * Retorno: um vetor de structs Veiculos preenchido com structs Veiculos carregados do arquivo
+ * Parametro: um ponteiro que referencia um vetor vazio de structs Veiculos
+ */
+Veiculos carregarVeiculosDoArquivo(Veiculos *c) {
+    FILE *arq = fopen("veiculos.txt", "r");
+    int i = 0;
+
+    if(arq == NULL) {
+        printf("Nao foi possivel abrir o arquivo");
+    }
+    else {
+        while( (fscanf(arq, "%d %s %s %s", &c[i].codigo, &c[i].descricao, &c[i].modelo, &c[i].cor, &c[i].placa, &c[i].valorDiaria, &c[i].qntdOcupantes, &c[i].status ))!=EOF ) {
+            i++;
+        }
+        fclose(arq);
+    }
+    return *c;
+}
+
+
+/*
+ * Cadastra um struct veiculo ao final do arquivo "veiculos.txt"
+ * Retorno: void
+ */
+void cadastrarVeiculos() {
+    FILE *reader = fopen("veiculos.txt", "r");
+    FILE *writer = fopen("veiculos.txt", "a");
+    Veiculos c;
+    Veiculos d;
+    int i = 0;
+    odigo
+descricao
+modelo
+cor
+placa
+valorDiaria
+qntdOcupantes
+status
+
+    if(reader == NULL) {
+        printf("Nao foi possivel abrir o arquivo");
+    }
+    else {
+        printf("\n***** Cadastro de Veiculos *****\n");
+        printf("Codigo do novo Veiculo: ");
+        scanf("%d", &c.codigo);
+
+        /* conta quantas linhas tem o arquivo */
+        while( (fscanf(reader, "%d %s %s %s", &d.codigo, &d.descricao, &d.modelo, &d.cor, &d.placa, &d.valorDiaria, &d.qntdOcupantes, &d.status))!=EOF  ) {
+            i++;
+        }
+        fclose(reader);
+        /* cria um vetor de structs Veiculos com um tamanho igual ao numero de linhas do arquivo */
+        Veiculos e[i];
+        /* le o arquivo novamente, dessa vez capturando as informações contidas nele */
+        reader = fopen("veiculos.txt", "r");
+        i = 0;
+        while( (fscanf(reader, "%d %s %s %s", &e[i].codigo, &e[i].descricao, &e[i].modelo, &e[i].cor, &e[i].placa, &e[i].valorDiaria, &e[i].qntdOcupantes, &e[i].status))!=EOF ) {
+            i++;
+        }
+        /* compara os codigos dos Veiculos do cadastro com o codigo inserido pelo usuario */
+        int j;
+        int teste = 0;
+        for(j = 0; j < i; j++) {
+            if(c.codigo == e[j].codigo) {
+                teste = 1;
+                j = i;
+            }
+        }
+        /* salva o veiculo novo apenas se o teste for false */
+        if(teste == 0) {
+            printf("Entre com o codigo: ");
+            scanf("%s", &c.codigo);
+            printf("\nEntre com a descricao(use o simbolo '_' ao inves de 'espaco': ");
+            scanf("%s", &c.descricao);
+            printf("\nEntre com o modelo: ");
+            scanf("%s", &c.modelo);
+            printf("\nEntre com a cor: ");
+            scanf("%s", &c.cor);
+            printf("\nEntre com a placa: ");
+            scanf("%s", &c.placa);
+            printf("\nEntre com o valor da diaria: ");
+            scanf("%s", &c.valorDiaria);
+            printf("\nEntre com a quantiade de ocupantes: ");
+            scanf("%s", &c.qntdOcupantes);
+            printf("\nEntre com o status: ");
+            scanf("%s", &c.status);
+
+            fprintf(writer, "\n%d %s %s %s", c.codigo, c.descricao, c.modelo, c.cor, c.placa, c.valorDiaria, c.qntdOcupantes, c.status,);
+        } else {
+            printf("ERRO! O codigo informado ja foi cadastrado");
+        }
+        fclose(writer);
+    }
+}
+
+/*
+ * Recebe um nome do veiculo e procura ele no cadastro salvo no arquivo
+ * retorno: void
+ */
+void pesquisaVeiculos() {
+    FILE *reader = fopen("veiculos.txt", "r");
+    Veiculos c, d;
+    int i = 0;
+
+    if(reader == NULL) {
+        printf("Nao foi possivel abrir o arquivo");
+    }
+    else {
+        printf("\n***** Pesquisar Veiculos *****\n");
+        printf("Entre com o codigo do Veiculo: ");
+        scanf("%s", &c.codigo);
+
+        /* conta quantas linhas tem o arquivo */
+        while( (fscanf(reader, "%d %s %s %s", &d.codigo, &d.descricao, &d.modelo, &d.cor, &d.placa, &d.valorDiaria, &d.qntdOcupantes, &d.status))!=EOF  ) {
+            i++;
+        }
+        fclose(reader);
+        /* cria um vetor de structs Veiculos com um tamanho igual ao numero de linhas do arquivo */
+        Veiculos e[i];
+        /* le o arquivo novamente, dessa vez capturando as informações contidas nele */
+        reader = fopen("veiculos.txt", "r");
+        i = 0;
+        while( (fscanf(reader, "%d %s %s %s", &e[i].codigo, &e[i].descricao, &e[i].modelo, &e[i].cor, &e[i].placa, &e[i].valorDiaria, &e[i].qntdOcupantes, &e[i].status))!=EOF ) {
+            i++;
+        }
+        /* compara os codigos dos veiculso do cadastro com o nome inserido pelo usuario */
+        int j = 0, teste = 0;
+        while(j < i) {
+            /* se os codigos forem iguais, para o loop */
+            if(strncmp(c.codigo, e[j].codigo, strlen(c.codigo)) == 0) {
+                teste = 1;
+                printf("\nCodigo: %d\n", e[j].codigo);
+                printf("Descricao: %s\n", e[j].descricao);
+                printf("Modelo: %s\n", e[j].modelo);
+                printf("Cor: %s\n", e[j].cor);
+                printf("Placa: %s\n", e[j].placa);
+                printf("Valor Diaria: %s\n", e[j].valorDiaria);
+                printf("Quantidade Ocupantes: %s\n", e[j].qntdOcupantes);
+                printf("Status: %s\n", e[j].status);
+                j = i;
+            } else {
+                j++;
+            }
+        }
+        /* se o teste for false, exibe mensagem de erro */
+        if(teste == 0) {
+            printf("\nERRO! O codigo procurado nao consta no cadastro.\n");
+        }
+    }
+}
+
+int main() {
+    pesquisaCliente();
+    return 0;
+}
