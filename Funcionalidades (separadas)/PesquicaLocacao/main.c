@@ -36,8 +36,9 @@ typedef struct Locacao{
     int numeroLocacoes = 0;
     int numeroVeiculos = 0;
     int numeroClientes = 0;
+    int pontosFidelidades = 0;
 
-    void pesquisarLocacao(Locacao VetorLocacoes[]);
+    void pesquisarLocacao(Locacao VetorLocacoes[], Cliente VetorClientes[]);
     void lerClientesArquivo(Cliente VetorClientes[]);
     void carregarClientes(Cliente VetorClientes[]);
     void lerLocacoesArquivo(Locacao VetorLocacoes[]);
@@ -56,7 +57,7 @@ int main()
 
     lerClientesArquivo(VetorClientes);
     carregarClientes(VetorClientes);
-    pesquisarLocacao(VetorLocacoes);
+    pesquisarLocacao(VetorLocacoes, VetorClientes);
 
 
     printf("\n\nFim do programa!");
@@ -75,12 +76,13 @@ void strSplit(char *strTOsplit,char *strArr[], char *strSeparet,int nArr)
             }
         }
 
-void pesquisarLocacao(Locacao VetorLocacoes[]){
+void pesquisarLocacao(Locacao VetorLocacoes[], Cliente VetorClientes[]){
 
-    int i,codigoPesquisa;
+    int i,codigoPesquisa, j=0;
 
     printf("\n\n\nDigite o CODIGO do cliente para pesquisar: ");
     scanf("%d", &codigoPesquisa);
+
 
             struct tm data_ret = { 0 };
             struct tm data_dev = { 0 };
@@ -124,6 +126,12 @@ void pesquisarLocacao(Locacao VetorLocacoes[]){
     {
        if (codigoPesquisa == VetorLocacoes[i].codigoCliente)
        {
+           if ( j == 0 )
+           {
+               printf("\nO nome do cliente e: %s\n\n", VetorClientes[i].nome);
+               j++;
+               printf("Cod | Seguro | Data Retirada | Data Devolucao | Qtd. dias | Cod. Cliente | Cod. Veiculo\n");
+           }
                 struct tm * ret;
                 struct tm * dev;
                 char bufRet[150], bufDev[150];
@@ -132,7 +140,9 @@ void pesquisarLocacao(Locacao VetorLocacoes[]){
                 dev = localtime(&VetorLocacoes[i].devolucao);
                 strftime(bufDev, 150, "%d/%m/%Y", dev);
 
-                printf("%d   %.2f\t%s\t%s\t%d\t%d\t%d\n", VetorLocacoes[i].codigo,
+                pontosFidelidades += VetorLocacoes[i].quantidadeDias;
+
+                printf("%d      %.2f  \t%s  \t%s  \t%d         \t%d           \t%d           \n", VetorLocacoes[i].codigo,
                                              VetorLocacoes[i].seguro,
                                              bufRet,
                                              bufDev,
@@ -141,6 +151,7 @@ void pesquisarLocacao(Locacao VetorLocacoes[]){
                                              VetorLocacoes[i].codigoVeiculo);
        }
     }
+    printf("\nPontos totais de fidelidade: %d", pontosFidelidades);
     printf("\n\nFim do programa na pesquisa!");
 }
 
