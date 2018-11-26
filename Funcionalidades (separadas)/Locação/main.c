@@ -43,6 +43,7 @@ typedef struct Locacao{
 int numeroClientes = 0;
 int numeroFuncionarios = 0;
 int numeroVeiculos = 0;
+int total;
 
 void lerClientesArquivo(Cliente VetorClientes[]);
 void lerFuncionariosArquivo(Funcionario VetorFuncionarios[]);
@@ -56,18 +57,19 @@ void strSplit(char *strTOsplit,char *strArr[], char *strSeparet,int nArr);
 
 int main()
 {
+    /*
     Cliente VetorClientes[1000];
     lerClientesArquivo(VetorClientes);
     carregarClientes(VetorClientes);
-
+*/
     Funcionario VetorFuncionarios[1000];
     lerFuncionariosArquivo(VetorFuncionarios);
     carregarFuncionarios(VetorFuncionarios);
-
+/*
     Veiculo VetorVeiculos[1000];
     lerVeiculosArquivo(VetorVeiculos);
     carregarVeiculos(VetorVeiculos);
-
+*/
     printf("Fim do programa!\n");
     return 0;
 }
@@ -144,6 +146,7 @@ void  lerFuncionariosArquivo(Funcionario VetorFuncionarios[])
                 i++;
             }
             numeroFuncionarios = i;
+            total = numeroFuncionarios;
         }
 
 
@@ -189,6 +192,34 @@ void  lerVeiculosArquivo(Veiculo VetorVeiculos[])
             numeroVeiculos = i;
         }
 
+void cadastrarFuncionario() {
+    int i=0, qtd;
+    Funcionario funcionario;
+    FILE *cadastroFuncionarios = fopen("funcionarios.txt", "a");
+
+    printf("Deseja cadastrar quantos? ");
+    scanf("%d", &qtd);
+    fflush(stdin);
+    do
+    {
+    /*printf("Codigo: ");*/
+    funcionario.codigo = total;
+    printf("Nome: ");
+    gets(funcionario.nome);
+    printf("Cargo: ");
+    gets(funcionario.cargo);
+    printf("Telefone: ");
+    gets(funcionario.telefone);
+    printf("Salario: ");
+    scanf("%f", &funcionario.salario);
+    fflush(stdin);
+
+    fprintf(cadastroFuncionarios, "\n%d;%s;%s;%s;%.2f", funcionario.codigo, funcionario.nome, funcionario.telefone, funcionario.cargo, funcionario.salario);
+    i++;
+    }while (i < qtd);
+
+    fclose(cadastroFuncionarios);
+}
 
  void carregarVeiculos(Veiculo VetorVeiculos[])
         {
@@ -206,3 +237,4 @@ void  lerVeiculosArquivo(Veiculo VetorVeiculos[])
                                              VetorVeiculos[i].status);
             }
         }
+

@@ -4,3 +4,10 @@
 	<stdlib.h>
 	<string.h>
 
+1543195756 source:c:\users\marcio.praxedes\documents\github\trab---aed-fe-ic-\funcionalidades (separadas)\locação\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+	<time.h>
+

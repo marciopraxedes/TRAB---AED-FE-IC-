@@ -1,4 +1,14 @@
-1;Otavio Augusto;31 994778591;Suporte Ténico;1200,00
-2;Maria Jose;31 343585564;Doméstica;800
-3;Marielton;31 948575684;Vendedor;1000
-4;Antonia;31 54864594;Vendedora;1500
+1;Francisco da Silva;3352-4412;Vendedor;1200.53
+2;Joao Batista;3321-6598;Vendedor;1232.41
+3;Maria Antonieta;3351-4178;Supervisora de Vendas;2720.89
+4;Antonio da Silva;3241-5689;Supervisor de Vendas;2341.89
+5;Irineu Chaves;3421-8547;Vendedor;1523.41
+1;Marcio;994778591;Vendedor;1.00
+2;Fulano;32546856;Cargo X;2.00
+550;Ciclano;35468594;Vendedor;3.00
+6;Jessica;25468546;Caixa;2.00
+7;Denise;69587456;Vendedora;3.00
+0;Carolina;84759568;Recepcionista;3500.00
+0;Leon;85974569;Panfleteiro;2500.00
+0;Leon;74589632;Pintor;1000.00
+13;Pedro;74859685;Auxiliar Administrativo;1500.00

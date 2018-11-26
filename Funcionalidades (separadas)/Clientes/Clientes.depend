@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1543206350 source:c:\users\marcio.praxedes\documents\github\trab---aed-fe-ic-\funcionalidades (separadas)\clientes\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+
