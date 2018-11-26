@@ -51,9 +51,11 @@ int main()
 {
     setlocale(LC_ALL, "portuguese");
     Locacao VetorLocacoes[1000];
+    Cliente VetorClientes[1000];
+    Veiculo VetorVeiculos[1000];
 
-
-    carregarLocacoes(VetorLocacoes[]);
+    lerClientesArquivo(VetorClientes);
+    carregarClientes(VetorClientes);
     pesquisarLocacao(VetorLocacoes);
 
 
@@ -75,10 +77,10 @@ void strSplit(char *strTOsplit,char *strArr[], char *strSeparet,int nArr)
 
 void pesquisarLocacao(Locacao VetorLocacoes[]){
 
-    char codigoPesquisa[4];
+    int i,codigoPesquisa;
 
-    printf("Digite o nome do cliente para pesquisa: ");
-    gets(codigoPesquisa);
+    printf("\n\n\nDigite o CODIGO do cliente para pesquisar: ");
+    scanf("%d", &codigoPesquisa);
 
             struct tm data_ret = { 0 };
             struct tm data_dev = { 0 };
@@ -89,7 +91,7 @@ void pesquisarLocacao(Locacao VetorLocacoes[]){
             char * informacoes_linha[7];
             char * vetor_data[3];
 
-            int i = 0;
+            i = 0;
             while (!feof(arquivo))  /* Enquando n�o chegar no fim do arquivo..*/
             {
                 result = *fgets (linha, 200, arquivo);/*Leitura de uma linha do arquivo...*/
@@ -117,10 +119,10 @@ void pesquisarLocacao(Locacao VetorLocacoes[]){
                 i++;
             }
             numeroLocacoes = i;
-
+    printf("\n");
     for ( i=0 ; i < numeroLocacoes ; i++)
     {
-       if (strcmp(codigoPesquisa, VetorLocacoes[i].codigoCliente)==0)
+       if (codigoPesquisa == VetorLocacoes[i].codigoCliente)
        {
                 struct tm * ret;
                 struct tm * dev;
@@ -142,71 +144,7 @@ void pesquisarLocacao(Locacao VetorLocacoes[]){
     printf("\n\nFim do programa na pesquisa!");
 }
 
-void  lerLocacoesArquivo(Locacao VetorLocacoes[])
-        {
-            struct tm data_ret = { 0 };
-            struct tm data_dev = { 0 };
-            FILE *arquivo;
-            arquivo = fopen("locacoes.txt", "r");
-            char linha[200];
-            char *result;
-            char * informacoes_linha[7];
-            char * vetor_data[3];
 
-            int i = 0;
-            while (!feof(arquivo))  /* Enquando n�o chegar no fim do arquivo..*/
-            {
-                result = *fgets (linha, 200, arquivo);/*Leitura de uma linha do arquivo...*/
-                strSplit(linha, informacoes_linha, ";",7); /*Separa os campos e os armazena no vetor de 3 posi��es chamado informacoes_linha*/
-                /*Cada posi��o do vetor VetorEmpregados guarda n�o so uma mas tres informa��es.*/
-                VetorLocacoes[i].codigo = atoi(informacoes_linha[0]);
-                VetorLocacoes[i].seguro = atof(informacoes_linha[1]);
-                /*Criacao de uma instancia de data de retirada*/
-                strSplit(informacoes_linha[2], vetor_data, "/", 3);
-                data_ret.tm_mday = atoi(vetor_data[0]);
-                data_ret.tm_mon = atoi(vetor_data[1]) - 1;
-                data_ret.tm_year = atoi(vetor_data[2]) - 1900;
-                VetorLocacoes[i].retirada = mktime(&data_ret);
-                /*Criacao de uma instancia de data de devolucao*/
-                strSplit(informacoes_linha[3], vetor_data, "/", 3);
-                data_dev.tm_mday = atoi(vetor_data[0]);
-                data_dev.tm_mon = atoi(vetor_data[1]) - 1;
-                data_dev.tm_year = atoi(vetor_data[2]) - 1900;
-                VetorLocacoes[i].devolucao = mktime(&data_dev);
-
-                VetorLocacoes[i].quantidadeDias = atoi(informacoes_linha[4]);
-                VetorLocacoes[i].codigoCliente = atoi(informacoes_linha[5]);
-                VetorLocacoes[i].codigoVeiculo = atoi(informacoes_linha[6]);
-
-                i++;
-            }
-            numeroLocacoes = i;
-        }
-void carregarLocacoes(Locacao VetorLocacoes[])
-        {
-			printf("\n***** Cadastro de Locacoes *****\n\n");
-			int i;
-
-			printf("\nID  Seguro\tData Retirada\tData Devolucao\tDias\tID Cli\tID Veic\n");
-            for (i = 0; i < numeroLocacoes; i++)
-            {
-                struct tm * ret;
-                struct tm * dev;
-                char bufRet[150], bufDev[150];
-                ret = localtime(&VetorLocacoes[i].retirada);
-                strftime(bufRet, 150, "%d/%m/%Y", ret);
-                dev = localtime(&VetorLocacoes[i].devolucao);
-                strftime(bufDev, 150, "%d/%m/%Y", dev);
-
-                printf("%d   %.2f\t%s\t%s\t%d\t%d\t%d\n", VetorLocacoes[i].codigo,
-                                             VetorLocacoes[i].seguro,
-                                             bufRet,
-                                             bufDev,
-                                             VetorLocacoes[i].quantidadeDias,
-                                             VetorLocacoes[i].codigoCliente,
-                                             VetorLocacoes[i].codigoVeiculo);
-            }
-        }
 void  lerVeiculosArquivo(Veiculo VetorVeiculos[])
         {
 
