@@ -1,4 +1,6 @@
-1;Hatch;Palio;Prata;OXD-7854;90,00;5;Disponivel
-2;Sedan;Siena;Preto;MKS-5486;110,00;5;Disponivel
-3;PickUp;Hillux;Prata;KJD-8548;170,00;2;Locado
-4;Sedan;Jetta;Branco;ADE-5486;140,00;5;Manutencao
+1;Hatch;Palio;Prata;OXD-7854;90.00;5;Disponivel
+2;Sedan;Siena;Preto;MKS-5486;110.00;5;Disponivel
+3;PickUp;Hillux;Prata;KJD-8548;170.00;2;Disponivel
+4;Sedan;Jetta;Branco;ADE-5486;140.00;5;Manutencao
+5;PickUp;Saveiro;Vermelho;CLK-1181;70.00;2;Disponivel
+6;Sedan;Civic;Grafite;HNI-4785;160.00;5;Alugado
